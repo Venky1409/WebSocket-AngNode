@@ -43,7 +43,7 @@ io.on('connection', (socket) => {
   });
 
 	socket.emit('message', messages);
-	socket.emit('/api', "Success Request");
+	socket.emit('api', "Success Request");
 });
 
 //Listen to port 1409

@@ -13,7 +13,6 @@ export class OrderComponent implements OnInit {
 
    ngOnInit() {
      this.messageService.getMessages().subscribe(message => {
-       console.log("Component messages",message);
       this.messages = message;
     })
     }
