@@ -6,8 +6,6 @@ const cors = require('cors');
 
 //Initialize our app variable
 const app = express();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
 
 //Declaring Port
 const port = process.env.PORT || 1409;
@@ -25,8 +23,8 @@ app.use(bodyParser.json());
 */
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.get('*', (req,res) => {
-	res.sendFile(path.join(__dirname, 'dist/index.html'));
+app.get('/api', (req, res) => {
+	res.send('HELLOOOO APIIII');
 });
 
 var messages = [
@@ -35,6 +33,13 @@ var messages = [
 	{"message": "Are you doing well?"},
 	{"message": "End of message"}
 ];
+
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
+app.get('*', (req,res) => {
+	res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
 
 io.on('connection', (socket) => {
 	socket.on('add-message', (message) => {
