@@ -1,0 +1,16 @@
+<header-bar></header-bar>
+<div *ngFor="let user of users" class="user-section">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" [(ngModel)]="user.name">
+  </div>
+  <div class="form-group">
+    <label for="phno">Phone</label>
+    <input type="text" class="form-control" id="phno" [(ngModel)]="user.phno">
+  </div>
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input type="text" class="form-control" id="age" [(ngModel)]="user.age">
+  </div>
+<button type="submit" class="btn btn-default" (click)="updateUser(user)">Update</button>
+</div>

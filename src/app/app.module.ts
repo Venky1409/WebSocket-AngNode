@@ -7,23 +7,38 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { OrderComponent } from './order/order.component';
+import { MessageComponent } from './message/message.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { UserComponent } from './users/user.component';
+import { ProfileComponent } from './profile/profile.component';
 import { SafePipe } from './pipe';
 
 import { MessageService } from './services/message.service';
+import { AppService } from './services/app.service';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'messages', component: OrderComponent }
+  { path: 'home', children: [
+      { path: '', children: [
+      { path: '', component: HomeComponent },
+      { path: 'home', component: HomeComponent },
+      { path: 'messages', component: MessageComponent },
+      { path: 'users', component: UserComponent },
+      { path: 'profile', component: ProfileComponent }
+      ]}
+  ]}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    OrderComponent,
+    MessageComponent,
     LoginComponent,
+    HomeComponent,
+    UserComponent,
+    ProfileComponent,
     SafePipe
   ],
   imports: [
@@ -33,7 +48,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [MessageService],
+  providers: [MessageService, AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

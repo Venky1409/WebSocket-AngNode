@@ -24,10 +24,24 @@ export class MessageService {
     this.socket.emit('add-message', message);
   }
 
+  updateUser(user) {
+    this.socket.emit('update-user', user);
+  }
+
   getMessages(): Observable<any> {
     let observable = new Observable(observer => {
       this.socket = io(this._configUrl);
       this.socket.on('message', (data) => {
+        observer.next(data);
+      });
+    })
+    return observable;
+  }
+
+  getUsers(): Observable<any> {
+    let observable = new Observable(observer => {
+      this.socket = io(this._configUrl);
+      this.socket.on('users', (data) => {
         observer.next(data);
       });
     })

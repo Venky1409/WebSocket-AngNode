@@ -1,10 +1,12 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" routerLink="/">Angular Node</a>
+      <a class="navbar-brand" routerLink="/home">Angular WebSockets</a>
     </div>
     <ul class="nav navbar-nav">
-      <li routerLink="/messages" routerLinkActive="active"><a>Messages</a></li>
+      <li routerLink="/home/messages" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a>Messages</a></li>
+      <li routerLink="/home/profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a>Profile</a></li>
+      <li routerLink="/home/users" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a>Users</a></li>
     </ul>
   </div>
 </nav>

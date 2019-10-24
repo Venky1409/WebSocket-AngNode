@@ -1,0 +1,11 @@
+.user-section {
+	border: 1ps solid grey;
+	padding: 15px;
+	margin-bottom: 5px;
+	display: flex;
+    justify-content: space-around;
+}
+.btn-default {
+	height: fit-content;
+    margin-top: 25px;
+}

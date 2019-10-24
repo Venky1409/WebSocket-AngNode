@@ -23,8 +23,33 @@ app.use(bodyParser.json());
 */
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.get('/api', (req, res) => {
-	res.send('HELLOOOO APIIII');
+var users = [
+	{'username': 'admin1', 'email': 'admin1@gmail.com', 'name': 'Admin1', 'phno': '00001', 'age': '25', 'id': 111},
+	{'username': 'admin2', 'email': 'admin2@gmail.com', 'name': 'Admin1', 'phno': '00001', 'age': '25', 'id': 222},
+	{'username': 'admin3', 'email': 'admin3@gmail.com', 'name': 'Admin1', 'phno': '00001', 'age': '25', 'id': 333},
+	{'username': 'admin4', 'email': 'admin4@gmail.com', 'name': 'Admin1', 'phno': '00001', 'age': '25', 'id': 444},
+	{'username': 'admin5', 'email': 'admin5@gmail.com', 'name': 'Admin1', 'phno': '00001', 'age': '25', 'id': 555}
+];
+
+app.post("/login", function(req, res) {
+	const payload = req.body;
+	const username = payload.user;
+	const email = payload.email;
+	const result = users.find(function(data) {
+	  return (data.username == username && data.email == email);
+	});
+	if (result) {
+		data = {'error': null}
+	} else {
+		data = {'error': 'User not found!!!'}
+	}
+	res.send(data);
+});
+
+app.post("/register", function(req, res) {
+	const payload = req.body;
+	data = {'error': null}
+	res.send(data);
 });
 
 var messages = [
@@ -44,11 +69,22 @@ app.get('*', (req,res) => {
 io.on('connection', (socket) => {
 	socket.on('add-message', (message) => {
 		messages.push({"message": message});
-    io.emit('message', messages);
-  });
+    	io.emit('message', messages);
+  	});
+
+  	socket.on('update-user', (user) => {
+  		users.forEach(function(data) {
+  			if (data.id == user.id) {
+  				data.name = user.name;
+  				data.phno = user.phno;
+  				data.age = user.age;
+  			}
+  		})
+    	io.emit('users', users);
+  	});
 
 	socket.emit('message', messages);
-	socket.emit('api', "Success Request");
+	socket.emit('users', users);
 });
 
 //Listen to port 1409

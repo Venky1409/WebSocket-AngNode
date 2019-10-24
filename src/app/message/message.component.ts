@@ -2,10 +2,10 @@ import {Component, Type, OnInit, OnDestroy} from '@angular/core';
 import { MessageService } from '../services/message.service';
 @Component({
   selector: 'message-bar',
-  templateUrl: './order.component.html',
-  styleUrls: ['./order.component.css']
+  templateUrl: './message.component.html',
+  styleUrls: ['./message.component.css']
 })
-export class OrderComponent implements OnInit {
+export class MessageComponent implements OnInit {
   messages = [];
   message = "";
 
