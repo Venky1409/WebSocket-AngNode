@@ -2,7 +2,7 @@
 <div *ngFor="let user of users" class="user-section">
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" [(ngModel)]="user.name">
+    <input type="text" class="form-control" id="name" [(ngModel)]="user.name" disabled>
   </div>
   <div class="form-group">
     <label for="phno">Phone</label>

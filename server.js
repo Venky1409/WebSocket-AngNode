@@ -24,11 +24,13 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'dist')));
 
 var users = [
-	{'username': 'admin1', 'email': 'admin1@gmail.com', 'name': 'Admin1', 'phno': '00001', 'age': '25', 'id': 111},
-	{'username': 'admin2', 'email': 'admin2@gmail.com', 'name': 'Admin2', 'phno': '00002', 'age': '25', 'id': 222},
-	{'username': 'admin3', 'email': 'admin3@gmail.com', 'name': 'Admin3', 'phno': '00003', 'age': '25', 'id': 333},
-	{'username': 'admin4', 'email': 'admin4@gmail.com', 'name': 'Admin4', 'phno': '00004', 'age': '25', 'id': 444},
-	{'username': 'admin5', 'email': 'admin5@gmail.com', 'name': 'Admin5', 'phno': '00005', 'age': '25', 'id': 555}
+	{'username': 'satvik', 'email': 'satvik@gmail.com', 'name': 'Satvik', 'phno': '9676727189', 'age': '25', 'id': 111},
+	{'username': 'santosh', 'email': 'santosh@gmail.com', 'name': 'Santosh', 'phno': '9491979418', 'age': '25', 'id': 222},
+	{'username': 'sainath', 'email': 'sainath@gmail.com', 'name': 'Sainath', 'phno': '9032590869', 'age': '25', 'id': 333},
+	{'username': 'rakesh', 'email': 'rakesh@gmail.com', 'name': 'Rakesh', 'phno': '8969978020', 'age': '25', 'id': 444},
+	{'username': 'venkatesh', 'email': 'venkatesh@gmail.com', 'name': 'Venkatesh', 'phno': '7842803071', 'age': '25', 'id': 555},
+	{'username': 'ratnaker', 'email': 'ratnaker@gmail.com', 'name': 'Ratnaker', 'phno': '8099905149', 'age': '25', 'id': 666},
+	{'username': 'sergey', 'email': 'sergey@gmail.com', 'name': 'Sergey', 'phno': '', 'age': '25', 'id': 777}
 ];
 
 app.post("/login", function(req, res) {
@@ -53,10 +55,10 @@ app.post("/register", function(req, res) {
 });
 
 var messages = [
-	{"name": "Admin1", "message": "Hii Venky"},
-	{"name": "Admin2", "message": "Hii Venky, How are You"},
-	{"name": "Admin3", "message": "Hi All, Are you doing well?"},
-	{"name": "Admin4", "message": "Awesome!!!"}
+	{"name": "Venkatesh", "message": "Hello Everyone"},
+	{"name": "Rakesh", "message": "Hii Venky, Hi All"},
+	{"name": "Ratnaker", "message": "Hi All, Welcome to Chat Session"},
+	{"name": "Satvik", "message": "Awesome!!! Lets Chat"}
 ];
 
 var server = require('http').Server(app);
