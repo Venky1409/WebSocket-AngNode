@@ -25,10 +25,10 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 var users = [
 	{'username': 'admin1', 'email': 'admin1@gmail.com', 'name': 'Admin1', 'phno': '00001', 'age': '25', 'id': 111},
-	{'username': 'admin2', 'email': 'admin2@gmail.com', 'name': 'Admin1', 'phno': '00001', 'age': '25', 'id': 222},
-	{'username': 'admin3', 'email': 'admin3@gmail.com', 'name': 'Admin1', 'phno': '00001', 'age': '25', 'id': 333},
-	{'username': 'admin4', 'email': 'admin4@gmail.com', 'name': 'Admin1', 'phno': '00001', 'age': '25', 'id': 444},
-	{'username': 'admin5', 'email': 'admin5@gmail.com', 'name': 'Admin1', 'phno': '00001', 'age': '25', 'id': 555}
+	{'username': 'admin2', 'email': 'admin2@gmail.com', 'name': 'Admin2', 'phno': '00002', 'age': '25', 'id': 222},
+	{'username': 'admin3', 'email': 'admin3@gmail.com', 'name': 'Admin3', 'phno': '00003', 'age': '25', 'id': 333},
+	{'username': 'admin4', 'email': 'admin4@gmail.com', 'name': 'Admin4', 'phno': '00004', 'age': '25', 'id': 444},
+	{'username': 'admin5', 'email': 'admin5@gmail.com', 'name': 'Admin5', 'phno': '00005', 'age': '25', 'id': 555}
 ];
 
 app.post("/login", function(req, res) {

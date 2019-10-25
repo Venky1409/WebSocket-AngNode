@@ -1,5 +1,6 @@
 <header-bar></header-bar>
 <div *ngFor="let user of users" class="user-section">
+  {{user.name}}
   <div class="form-group">
     <label for="name">Name</label>
     <input type="text" class="form-control" id="name" [(ngModel)]="user.name">
