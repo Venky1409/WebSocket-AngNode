@@ -1,4 +1,8 @@
-h1 {
+h1, h3 {
 	text-align: center;
 	margin-top: 20px;
+}
+.user {
+	color: red;
+	font-weight: bold;
 }

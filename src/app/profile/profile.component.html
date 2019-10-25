@@ -1,7 +1,8 @@
 <header-bar></header-bar>
-<div *ngFor="let data of profile">
-	<div>{{data.name}}</div>
-	<div>{{data.email}}</div>
-	<div>{{data.phno}}</div>
-	<div>{{data.age}}</div>
+<h3>Profile Details</h3>
+<div class="profile-content">
+	<div><strong>Name: </strong>{{profile.name}}</div>
+	<div><strong>Email: </strong>{{profile.email}}</div>
+	<div><strong>Phone: </strong>{{profile.phno}}</div>
+	<div><strong>Age: </strong>{{profile.age}}</div>
 </div>

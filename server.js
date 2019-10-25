@@ -39,9 +39,9 @@ app.post("/login", function(req, res) {
 	  return (data.username == username && data.email == email);
 	});
 	if (result) {
-		data = {'error': null}
+		data = {'error': null, 'data': result}
 	} else {
-		data = {'error': 'User not found!!!'}
+		data = {'error': 'User not found!!!', 'data': null}
 	}
 	res.send(data);
 });
@@ -53,10 +53,10 @@ app.post("/register", function(req, res) {
 });
 
 var messages = [
-	{"message": "Hii Pinku"},
-	{"message": "How are You"},
-	{"message": "Are you doing well?"},
-	{"message": "End of message"}
+	{"name": "Admin1", "message": "Hii Venky"},
+	{"name": "Admin2", "message": "Hii Venky, How are You"},
+	{"name": "Admin3", "message": "Hi All, Are you doing well?"},
+	{"name": "Admin4", "message": "Awesome!!!"}
 ];
 
 var server = require('http').Server(app);
@@ -67,8 +67,8 @@ app.get('*', (req,res) => {
 });
 
 io.on('connection', (socket) => {
-	socket.on('add-message', (message) => {
-		messages.push({"message": message});
+	socket.on('add-message', (data) => {
+		messages.push({"message": data.message, "name": data.name});
     	io.emit('message', messages);
   	});
 
@@ -78,13 +78,22 @@ io.on('connection', (socket) => {
   				data.name = user.name;
   				data.phno = user.phno;
   				data.age = user.age;
+  				io.emit('profile', data);
   			}
   		})
     	io.emit('users', users);
   	});
 
 	socket.emit('message', messages);
+	socket.emit('profile', {});
 	socket.emit('users', users);
+
+	socket.on('get-profile', (id) => {
+  		const result = users.find(function(data) {
+		  return (data.id == id);
+		});
+    	io.emit('profile', result);
+  	});
 });
 
 //Listen to port 1409

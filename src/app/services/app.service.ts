@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import {Subject} from 'rxjs';
 import {Headers, Http, RequestOptions, Response} from '@angular/http';
+import { globals } from '../config/globals';
 import {Observable} from 'rxjs';
 import 'rxjs/add/operator/catch';
 import {catchError, map} from 'rxjs/operators';
 
 @Injectable()
 export class AppService {
-  private loginUrl = '/login';
-  private registerUrl = '/register';
+  private loginUrl = globals.dbhosturl + 'login';
+  private registerUrl = globals.dbhosturl + 'register';
   private _options = new RequestOptions({
     headers: new Headers({'Content-Type': 'application/json'}),
     withCredentials: true,

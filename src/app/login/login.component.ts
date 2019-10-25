@@ -24,6 +24,8 @@ export class LoginComponent implements OnInit {
 	     .subscribe(
 	       res => {
 	         if (!res.error) {
+            sessionStorage.setItem('name', res.data.name);
+            sessionStorage.setItem('id', res.data.id);
 	         	this.router.navigate(['/home']);
 	         } else {
             alert(res.error);

@@ -1,0 +1,11 @@
+h1, h3 {
+	text-align: center;
+	margin-top: 20px;
+}
+.profile-content {
+	border: 1px solid grey;
+    padding: 45px;
+    width: 30%;
+    position: relative;
+    left: 35%;
+}

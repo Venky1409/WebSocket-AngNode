@@ -2,6 +2,6 @@
 <div class="form-group row">
 <input type="text" [(ngModel)]="message" /><button (click)="sendMessage()">Click</button>
 <div *ngFor="let data of messages">
-    {{data.message}}
+    <strong>{{data.name}}: </strong>{{data.message}}
 </div>
 </div>
