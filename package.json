@@ -38,7 +38,7 @@
     "ng2-dropdown-treeview": "^2.0.1",
     "path": "^0.12.7",
     "rxjs": "^5.4.2",
-    "socket.io": "^2.2.0",
+    "socket.io": "^2.4.0",
     "socket.io-client": "^2.2.0",
     "zone.js": "^0.8.14"
   },
